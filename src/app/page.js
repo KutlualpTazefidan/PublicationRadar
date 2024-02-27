@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { Exo } from "next/font/google";
 import Nav from '../components/Nav'; 
 import IntroSection from '../components/IntroSection'; // Adjust the path as necessary
+import FetchSection from '../components/FetchSection'; // Adjust the path as necessary
 
 const exo = Exo({ subsets: ["latin"] });
 
@@ -39,6 +40,7 @@ export default function Home() {
       <Nav onHomeClick={handleHomeClick} onFetchClick={handleFetchClick} onClusterClick={handleClusterClick} onPredictClick={handlePredictClick} onAnalyzeClick={handleAnalyzeClick}/>
       <main className={styles.main}>
         <IntroSection isHomeClicked={isHomeClicked} isFetchClicked={isFetchClicked} isClusterClicked={isClusterClicked} isPredictClicked={isPredictClicked} isAnalyzeClicked={isAnalyzeClicked}/>
+        <FetchSection/>
       </main>
     </>
   );
