@@ -17,8 +17,11 @@ export default function Home() {
   // Handler to call when 'Nav' is clicked
   const handleHomeClick = () => {
     setIsHomeClicked(true);
+    setIsFetchClicked(false);
+    
   };
   const handleFetchClick = () => {
+    setIsHomeClicked(false);
     setIsFetchClicked(true);
   };
   const handleClusterClick = () => {

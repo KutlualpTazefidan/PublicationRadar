@@ -50,18 +50,37 @@
   margin-left: 0; /* Adjust as needed to align bullets with the span element */
 
 }
-
-.fade {
-  transition: opacity 0.5s ease-in-out; /* Smooth transition for fading */
-  opacity: 0; /* Fully transparent */
-}
-.show {
-  transition: opacity 0.5s ease-in-out; /* Smooth transition for fading */
-  opacity: 1; /* Fully transparent */
-}
-
 .logo{
   position: absolute;
   left:1.5rem;
   top: 1.6rem;
+}
+
+.show {
+  /* transition: opacity 0.5s ease-in-out; Smooth transition for fading */
+  opacity: 1; /* Fully transparent */
+  animation: fadeIn 1s forwards; /* Smooth transition for fading in */
+
+}
+
+.fade {
+  animation: fadeOut 1s forwards; /* 'forwards' makes the element keep the final state after the animation completes */
+}
+
+
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden; /* This won't work directly in animations, but we'll handle visibility through React */
+  }
+}
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
