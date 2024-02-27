@@ -1,134 +1,41 @@
 "use client";
+import { useState } from 'react'; // Import useState hook
 import styles from "./page.module.css";
 import { Exo } from "next/font/google";
+import Nav from '../components/Nav'; 
+import IntroSection from '../components/IntroSection'; // Adjust the path as necessary
+
 const exo = Exo({ subsets: ["latin"] });
 
 export default function Home() {
-  // const [airportsData, setAirportsData] = useState([]);
-  // const [unfilteredAirportsData, setUnfilteredAirportsData] = useState([]);
-  // const [airline_codes, setAirlineCodes] = useState([]);
-  // const [airline_names, setAirlineNames] = useState([]);
-  // const [orgAirports, setOrgAirports] = useState([]);
-  // const [renderTriggerAirline, setRenderTriggerAirline] = useState(false);
+  const [isHomeClicked, setIsHomeClicked] = useState(false); // State to track if 'Fetch' is clicked
+  const [isFetchClicked, setIsFetchClicked] = useState(false); // State to track if 'Fetch' is clicked
+  const [isClusterClicked, setIsClusterClicked] = useState(false); // State to track if 'Fetch' is clicked
+  const [isPredictClicked, setIsPredictClicked] = useState(false); // State to track if 'Fetch' is clicked
+  const [isAnalyzeClicked, setIsAnalyzeClicked] = useState(false); // State to track if 'Fetch' is clicked
 
-  // Retrieving store items to see if they changed
-  // const { departure_airport, arrival_airport, departure_time, arrival_time } =
-    // useSnapshot(storage);
+  // Handler to call when 'Nav' is clicked
+  const handleHomeClick = () => {
+    setIsHomeClicked(true);
+  };
+  const handleFetchClick = () => {
+    setIsFetchClicked(true);
+  };
+  const handleClusterClick = () => {
+    setIsClusterClicked(true);
+  };
+  const handlePredictClick = () => {
+    setIsPredictClicked(true);
+  };
+  const handleAnalyzeClick = () => {
+    setIsAnalyzeClicked(true);
+  };
 
-  // Storing files on local storage
-  // const [localObjectsStorage, setLocalObjectsStorage] = useLocalStorageState(
-    // "FlightDelayStorage",
-    // { defaultValue: storage }
-  // );
-
-  // function getItem(key) {
-    // const localStore = localStorage.getItem(key);
-    // if (localStore !== null) {
-      // return JSON.parse(localStore);
-    // }
-    // return null;
-  // }
-
-  // useEffect(() => {
-  //   // retrieve data from local storage
-  //   const retrievedStorage = getItem("FlightDelayStorage");
-  //   if (retrievedStorage) {
-  //     storage.departure_airport = retrievedStorage.departure_airport;
-  //     storage.arrival_airport = retrievedStorage.arrival_airport;
-  //     storage.departure_time = retrievedStorage.departure_time;
-  //     storage.arrival_time = retrievedStorage.arrival_time;
-  //     setLocalObjectsStorage(storage);
-  //   }
-  //   // Import airport data
-  //   async function fetchDataFromJson() {
-  //     try {
-  //       const [
-  //         airportsDataResponse,
-  //         orgAirportsResponse,
-  //         airlineCodesResponse,
-  //       ] = await Promise.all([
-  //         fetch("./data/airportsdata.json").then((response) => response.json()),
-  //         fetch("./data/airports_in_org_dataset.json").then((response) =>
-  //           response.json()
-  //         ),
-  //         fetch("./data/airline_codes.json").then((response) =>
-  //           response.json()
-  //         ),
-  //       ]);
-  //       setUnfilteredAirportsData(airportsDataResponse);
-  //       setOrgAirports(orgAirportsResponse.airports);
-  //       setAirlineCodes(airlineCodesResponse.airline_code);
-
-  //       // console.log(
-  //       //   "hello3a",
-  //       //   orgAirports.includes(unfilteredAirportsData["CMN"].iata)
-  //       // );
-  //     } catch (error) {
-  //       console.error("Error fetching JSON data:", error);
-  //     }
-  //   }
-  //   fetchDataFromJson();
-  // }, []);
-
-  // useEffect(() => {
-  //   const filteredData = {};
-  //   Object.keys(unfilteredAirportsData).forEach((airportCode) => {
-  //     const airport = unfilteredAirportsData[airportCode];
-  //     if (orgAirports.includes(airport.iata)) {
-  //       filteredData[airportCode] = airport;
-  //     }
-  //   });
-  //   console.log("hello_5_fil", filteredData);
-  //   // console.log("hello_5_fil", filtered_data);
-  //   setAirportsData(filteredData);
-  // }, [unfilteredAirportsData]);
-
-  // useEffect(() => {
-  //   const translations = [];
-
-  //   // Loop through the list of airline codes and translate them
-  //   airline_codes.forEach((code) => {
-  //     const airline = airlineCodeTranslator.findWhere({ iata: code });
-  //     if (airline) {
-  //       translations.push(airline.get("name"));
-  //     } else {
-  //       translations.push(code); // Handle cases where the code is not found
-  //     }
-  //   });
-
-  //   setAirlineNames(translations.slice().sort());
-  //   console.log("codes", airline_codes);
-  // }, [airline_codes]);
-
-  // useEffect(() => {
-  //   setLocalObjectsStorage(storage);
-  // }, [renderTriggerAirline]);
   return (
     <>
+      <Nav onHomeClick={handleHomeClick} onFetchClick={handleFetchClick} onClusterClick={handleClusterClick} onPredictClick={handlePredictClick} onAnalyzeClick={handleAnalyzeClick}/>
       <main className={styles.main}>
-        <div className={styles.intro}>
-          <div>
-            <header className={styles.page_title}>Trends in Scientific Research</header>
-            <span>Predicting the Evolution of Key Research Domains</span>
-          </div>
-        <div>
-            <span>Our Services:</span>
-            <ul>
-                <li>Publication Metadata Retrieval</li>
-                <li>Scientific Topic Clustering</li>
-                <li>Trend Prediction</li>
-                <li>Publication Analysis</li>
-            </ul>
-          </div>
-        </div>
-        <nav className={styles.glasscard_nav}>
-          <ul>
-            <li>Fetch</li>
-            <li>Cluster</li>
-            <li>Predict</li>
-            <li>Analyze</li>
-          </ul>
-        </nav>
+        <IntroSection isHomeClicked={isHomeClicked} isFetchClicked={isFetchClicked} isClusterClicked={isClusterClicked} isPredictClicked={isPredictClicked} isAnalyzeClicked={isAnalyzeClicked}/>
       </main>
     </>
   );
