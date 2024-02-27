@@ -106,7 +106,21 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <header className={styles.page_title}>Analysis of Scientific Publications</header>
+        <div className={styles.intro}>
+          <div>
+            <header className={styles.page_title}>Trends in Scientific Research</header>
+            <span>Predicting the Evolution of Key Research Domains</span>
+          </div>
+        <div>
+            <span>Our Services:</span>
+            <ul>
+                <li>Publication Metadata Retrieval</li>
+                <li>Scientific Topic Clustering</li>
+                <li>Trend Prediction</li>
+                <li>Publication Analysis</li>
+            </ul>
+          </div>
+        </div>
         <nav className={styles.glasscard_nav}>
           <ul>
             <li>Fetch</li>
