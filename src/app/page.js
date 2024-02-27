@@ -1,95 +1,121 @@
-import Image from "next/image";
+"use client";
 import styles from "./page.module.css";
+import { Exo } from "next/font/google";
+const exo = Exo({ subsets: ["latin"] });
 
 export default function Home() {
+  // const [airportsData, setAirportsData] = useState([]);
+  // const [unfilteredAirportsData, setUnfilteredAirportsData] = useState([]);
+  // const [airline_codes, setAirlineCodes] = useState([]);
+  // const [airline_names, setAirlineNames] = useState([]);
+  // const [orgAirports, setOrgAirports] = useState([]);
+  // const [renderTriggerAirline, setRenderTriggerAirline] = useState(false);
+
+  // Retrieving store items to see if they changed
+  // const { departure_airport, arrival_airport, departure_time, arrival_time } =
+    // useSnapshot(storage);
+
+  // Storing files on local storage
+  // const [localObjectsStorage, setLocalObjectsStorage] = useLocalStorageState(
+    // "FlightDelayStorage",
+    // { defaultValue: storage }
+  // );
+
+  // function getItem(key) {
+    // const localStore = localStorage.getItem(key);
+    // if (localStore !== null) {
+      // return JSON.parse(localStore);
+    // }
+    // return null;
+  // }
+
+  // useEffect(() => {
+  //   // retrieve data from local storage
+  //   const retrievedStorage = getItem("FlightDelayStorage");
+  //   if (retrievedStorage) {
+  //     storage.departure_airport = retrievedStorage.departure_airport;
+  //     storage.arrival_airport = retrievedStorage.arrival_airport;
+  //     storage.departure_time = retrievedStorage.departure_time;
+  //     storage.arrival_time = retrievedStorage.arrival_time;
+  //     setLocalObjectsStorage(storage);
+  //   }
+  //   // Import airport data
+  //   async function fetchDataFromJson() {
+  //     try {
+  //       const [
+  //         airportsDataResponse,
+  //         orgAirportsResponse,
+  //         airlineCodesResponse,
+  //       ] = await Promise.all([
+  //         fetch("./data/airportsdata.json").then((response) => response.json()),
+  //         fetch("./data/airports_in_org_dataset.json").then((response) =>
+  //           response.json()
+  //         ),
+  //         fetch("./data/airline_codes.json").then((response) =>
+  //           response.json()
+  //         ),
+  //       ]);
+  //       setUnfilteredAirportsData(airportsDataResponse);
+  //       setOrgAirports(orgAirportsResponse.airports);
+  //       setAirlineCodes(airlineCodesResponse.airline_code);
+
+  //       // console.log(
+  //       //   "hello3a",
+  //       //   orgAirports.includes(unfilteredAirportsData["CMN"].iata)
+  //       // );
+  //     } catch (error) {
+  //       console.error("Error fetching JSON data:", error);
+  //     }
+  //   }
+  //   fetchDataFromJson();
+  // }, []);
+
+  // useEffect(() => {
+  //   const filteredData = {};
+  //   Object.keys(unfilteredAirportsData).forEach((airportCode) => {
+  //     const airport = unfilteredAirportsData[airportCode];
+  //     if (orgAirports.includes(airport.iata)) {
+  //       filteredData[airportCode] = airport;
+  //     }
+  //   });
+  //   console.log("hello_5_fil", filteredData);
+  //   // console.log("hello_5_fil", filtered_data);
+  //   setAirportsData(filteredData);
+  // }, [unfilteredAirportsData]);
+
+  // useEffect(() => {
+  //   const translations = [];
+
+  //   // Loop through the list of airline codes and translate them
+  //   airline_codes.forEach((code) => {
+  //     const airline = airlineCodeTranslator.findWhere({ iata: code });
+  //     if (airline) {
+  //       translations.push(airline.get("name"));
+  //     } else {
+  //       translations.push(code); // Handle cases where the code is not found
+  //     }
+  //   });
+
+  //   setAirlineNames(translations.slice().sort());
+  //   console.log("codes", airline_codes);
+  // }, [airline_codes]);
+
+  // useEffect(() => {
+  //   setLocalObjectsStorage(storage);
+  // }, [renderTriggerAirline]);
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <>
+      <main className={styles.main}>
+        <header className={styles.page_title}>Analysis of Scientific Publications</header>
+        <nav className={styles.glasscard_nav}>
+          <ul>
+            <li>Fetch</li>
+            <li>Cluster</li>
+            <li>Predict</li>
+            <li>Analyze</li>
+          </ul>
+        </nav>
+      </main>
+    </>
   );
 }
