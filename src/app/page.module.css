@@ -6,12 +6,35 @@
   width: 100vw;
   height: 100vh;
 }
-
+.intro{
+  position: absolute;
+  top: 50%; /* Position the top edge of the element at the middle of the container */
+  left: 50%; /* Position the left edge of the element at the middle of the container */
+  transform: translate(-50%, -50%); /* Shift the element back by half its width and height to center it */
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center flex items on the main axis (horizontally) */
+  align-items: center; /* Center flex items on the cross axis (vertically) */
+  font-size: 1rem;
+  gap: 6rem;
+  width: 100%;
+}
 .page_title{
-  display: flex; /* Use flexbox to create a horizontal layout */
-  align-self: flex-start;
-  padding: 1rem; /* Add padding for spacing */
-  font-size: 2rem; /* Set the font size to 20 pixels */
+  font-size: 2.5rem;
+}
+
+.intro div:nth-of-type(2) span{
+  /* padding: 1rem; */
+  font-size: 1rem;
+  text-decoration: underline; /* Adds an underline to each list item */
+
+}
+
+.intro div ul{
+  margin-top: 0.5rem;
+  padding-left: 1.2rem; /* Reduces the default left padding to bring bullets closer to the container's edge */
+  margin-left: 0; /* Adjust as needed to align bullets with the span element */
+
 }
 
 .nav {
