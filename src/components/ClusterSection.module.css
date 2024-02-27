@@ -1,0 +1,21 @@
+.graph_field{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.plot3d{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    /* margin-top: 3rem; */
+}
+
+.fetchEmbeddings{
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+}

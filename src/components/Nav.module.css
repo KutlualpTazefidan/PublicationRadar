@@ -41,3 +41,10 @@
     border-radius: 5rem;
     cursor: pointer; /* Show a pointer cursor on hover */
   }
+
+  .logo{
+    position: absolute;
+    left:1.5rem;
+    top: 1.6rem;
+  }
+  

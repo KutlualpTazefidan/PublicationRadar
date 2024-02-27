@@ -6,11 +6,11 @@
   align-items: center; /* Center flex items on the cross axis (vertically) */
   font-size: 1rem;
   gap: 6rem;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  width: 100%;
-  height: 100%;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translateX(-50%) translateY(-50%); */
+  width: 100vw;
+  height: 100vh;
 }
 .intro_text{
   /* position: absolute; */
@@ -49,11 +49,6 @@
   padding-left: 1.2rem; /* Reduces the default left padding to bring bullets closer to the container's edge */
   margin-left: 0; /* Adjust as needed to align bullets with the span element */
 
-}
-.logo{
-  position: absolute;
-  left:1.5rem;
-  top: 1.6rem;
 }
 
 .show {

@@ -5,42 +5,50 @@ import { Exo } from "next/font/google";
 import Nav from '../components/Nav'; 
 import IntroSection from '../components/IntroSection'; // Adjust the path as necessary
 import FetchSection from '../components/FetchSection'; // Adjust the path as necessary
+import ClusterSection from '../components/ClusterSection'; // Adjust the path as necessary
+import { useTransition, animated } from 'react-spring';
 
 const exo = Exo({ subsets: ["latin"] });
 
 export default function Home() {
-  const [isHomeClicked, setIsHomeClicked] = useState(false); // State to track if 'Fetch' is clicked
-  const [isFetchClicked, setIsFetchClicked] = useState(false); // State to track if 'Fetch' is clicked
-  const [isClusterClicked, setIsClusterClicked] = useState(false); // State to track if 'Fetch' is clicked
-  const [isPredictClicked, setIsPredictClicked] = useState(false); // State to track if 'Fetch' is clicked
-  const [isAnalyzeClicked, setIsAnalyzeClicked] = useState(false); // State to track if 'Fetch' is clicked
+  const [activeSection, setActiveSection] = useState('home');
 
-  // Handler to call when 'Nav' is clicked
-  const handleHomeClick = () => {
-    setIsHomeClicked(true);
-    setIsFetchClicked(false);
-    
+  const sections = {
+    home: <IntroSection />,
+    fetch: <FetchSection />,
+    cluster: <ClusterSection />,
+    // Add more sections as needed
   };
-  const handleFetchClick = () => {
-    setIsHomeClicked(false);
-    setIsFetchClicked(true);
+
+  const handleNavClick = (section) => {
+    setActiveSection(section);
   };
-  const handleClusterClick = () => {
-    setIsClusterClicked(true);
-  };
-  const handlePredictClick = () => {
-    setIsPredictClicked(true);
-  };
-  const handleAnalyzeClick = () => {
-    setIsAnalyzeClicked(true);
-  };
+
+  const transitions = useTransition(activeSection, {
+    from: (item) => ({
+      width: "100%",
+      opacity: 0,
+      transform: 'translate3d(' + (item === 'home' ? '-100%' : '100%') + ',0,0)',
+    }),
+    enter: { width: "100%", opacity: 1, transform: 'translate3d(0%,0,0)' },
+    leave: (item) => ({
+      width: "100%",
+      opacity: 0,
+      transform: 'translate3d(' + (item === 'home' ? '100%' : '-100%') + ',0,0)',
+    }),
+    keys: activeSection,
+  });
+
 
   return (
     <>
-      <Nav onHomeClick={handleHomeClick} onFetchClick={handleFetchClick} onClusterClick={handleClusterClick} onPredictClick={handlePredictClick} onAnalyzeClick={handleAnalyzeClick}/>
+      <Nav onHomeClick={() => handleNavClick('home')} onFetchClick={() => handleNavClick('fetch')} onClusterClick={() => handleNavClick('cluster')} />
       <main className={styles.main}>
-        <IntroSection isHomeClicked={isHomeClicked} isFetchClicked={isFetchClicked} isClusterClicked={isClusterClicked} isPredictClicked={isPredictClicked} isAnalyzeClicked={isAnalyzeClicked}/>
-        <FetchSection/>
+        {transitions((style, item) => (
+            <animated.div style={style}>
+              {sections[item]}
+            </animated.div>
+          ))}
       </main>
     </>
   );
