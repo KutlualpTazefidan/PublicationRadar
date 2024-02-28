@@ -6,17 +6,6 @@ import {useForm} from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import { Button } from "@/components/ui/button"
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import FetchTable from './FetchTable'; // Adjust the path as necessary
  
 import dynamic from 'next/dynamic';
 const My3DChartNoSSR = dynamic(() => import('./My3DScatterPlot'), { ssr: false });
@@ -35,7 +24,7 @@ const formSchema = z.object({
     }),
 })
 
-const FetchSection=()=>{
+const ClusterSection=()=>{
 
   const form = useForm({
       resolver: zodResolver(formSchema),
@@ -85,4 +74,4 @@ const FetchSection=()=>{
   </div>)
 }
 
-export default FetchSection;
+export default ClusterSection;
