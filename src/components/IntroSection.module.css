@@ -1,0 +1,81 @@
+.intro{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center flex items on the main axis (horizontally) */
+  align-items: center; /* Center flex items on the cross axis (vertically) */
+  font-size: 1rem;
+  gap: 6rem;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translateX(-50%) translateY(-50%); */
+  width: 100vw;
+  height: 100vh;
+}
+.intro_text{
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center flex items on the main axis (horizontally) */
+  align-items: flex-start; /* Center flex items on the cross axis (vertically) */
+  /* width: 100%; */
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transition: all 0.5s ease-in-out; /* Smooth transition for movement */
+}
+.page_title{
+  font-size: 2.5rem;
+  transition: all 0.5s ease-in-out; /* Smooth transition for movement */
+}
+
+.page_title_moved {
+  top: 2rem;
+  left: 2rem;
+  /* font-size: 1rem; */
+  /* transform: translateX(-50%) translateY(-500%); */
+}
+
+.intro div:nth-of-type(2) span{
+  /* padding: 1rem; */
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  text-decoration: underline; /* Adds an underline to each list item */
+  text-underline-offset: 0.2em; /* Adjust the value as needed */
+}
+
+.intro div ul{
+  margin-top: 0.5rem;
+  padding-left: 1.2rem; /* Reduces the default left padding to bring bullets closer to the container's edge */
+  margin-left: 0; /* Adjust as needed to align bullets with the span element */
+
+}
+
+.show {
+  /* transition: opacity 0.5s ease-in-out; Smooth transition for fading */
+  opacity: 1; /* Fully transparent */
+  animation: fadeIn 1s forwards; /* Smooth transition for fading in */
+
+}
+
+.fade {
+  animation: fadeOut 1s forwards; /* 'forwards' makes the element keep the final state after the animation completes */
+}
+
+
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden; /* This won't work directly in animations, but we'll handle visibility through React */
+  }
+}
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
