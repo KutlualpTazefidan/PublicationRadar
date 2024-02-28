@@ -6,6 +6,7 @@ import Nav from '../components/Nav';
 import IntroSection from '../components/IntroSection'; // Adjust the path as necessary
 import FetchSection from '../components/FetchSection'; // Adjust the path as necessary
 import ClusterSection from '../components/ClusterSection'; // Adjust the path as necessary
+import PredictionSection from '../components/PredictionSection'; // Adjust the path as necessary
 import { useTransition, animated } from 'react-spring';
 
 const exo = Exo({ subsets: ["latin"] });
@@ -17,6 +18,7 @@ export default function Home() {
     home: <IntroSection />,
     fetch: <FetchSection />,
     cluster: <ClusterSection />,
+    prediction: <PredictionSection />,
     // Add more sections as needed
   };
 
@@ -42,7 +44,7 @@ export default function Home() {
 
   return (
     <>
-      <Nav onHomeClick={() => handleNavClick('home')} onFetchClick={() => handleNavClick('fetch')} onClusterClick={() => handleNavClick('cluster')} />
+      <Nav onHomeClick={() => handleNavClick('home')} onFetchClick={() => handleNavClick('fetch')} onClusterClick={() => handleNavClick('cluster')} onPredictionClick={() => handleNavClick('prediction')} onAnalyzeClick={() => handleNavClick('analyze')}/>
       <main className={styles.main}>
         {transitions((style, item) => (
             <animated.div style={style}>
