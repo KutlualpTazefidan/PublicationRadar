@@ -44,7 +44,12 @@
 
   .logo{
     position: absolute;
+    display: flex;
+    flex-direction: row;
     left:1.5rem;
     top: 1.6rem;
   }
   
+  .logotext{
+    padding-left: 0.5rem;
+  }

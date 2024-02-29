@@ -1,0 +1,121 @@
+.analyze_field{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  /* max-height: 100vh; */
+  gap:4rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  /* flex-grow: 1; */
+}
+.analyze_field_top{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap:4rem;
+  padding-top: 8rem;
+}
+.upload_file{
+  display: flex;
+  justify-content: center;
+}
+
+.user_prompt{
+  padding-top: 0.4rem;
+}
+
+.pdf_view{
+  width: 50%;
+  height: 100vh;
+}
+
+.analyze_button{
+  align-self: flex-end;
+}
+
+.analysis_results{
+  /* position: relative; */
+  /* overflow-y: scroll; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 50%;
+  /* padding-top: 50rem; */
+}
+
+.glasscard {
+  /* left: 0; */
+  display: flex; /* Use flexbox to create a horizontal layout */
+  justify-content: space-around; /* Distribute menu items evenly */
+  /* align-self: flex-start; */
+  flex-direction: column; /* Display the list items vertically */
+
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-top: 1rem; /* Add padding for spacing */
+  padding-bottom: 2rem; /* Add padding for spacing */
+  padding-left: 1.5rem; /* Add padding for spacing */
+  padding-right: 1.5rem; /* Add padding for spacing */
+  border-radius: 2rem;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.904),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(1rem);
+  z-index: 1;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  /* max-height: 15rem; */
+}
+
+.card_title{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.results_container{
+  display: flex; 
+  flex-direction: column; 
+  height: 100%;
+  flex-direction: row;
+  /* flex-grow: 1; */
+  /* position: relative; */
+  /* display: flex; */
+}
+
+.filename{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Additional classes for background colors */
+.excellentRating {
+  background: linear-gradient(to right bottom, rgba(0, 255, 8, 0.7), rgba(76, 175, 80, 0.3));
+}
+
+.goodRating {
+  background: linear-gradient(to right bottom, rgba(157, 255, 0, 0.7), rgba(139, 195, 74, 0.3));
+}
+
+.averageRating {
+  background: linear-gradient(to right bottom, rgba(255, 235, 59, 0.7), rgba(255, 235, 59, 0.3));
+}
+
+.poorRating {
+  background: linear-gradient(to right bottom, rgba(255, 147, 7, 0.719), rgba(255, 193, 7, 0.3));
+}
+
+.badRating {
+  background: linear-gradient(to right bottom, rgba(244, 67, 54, 0.7), rgba(244, 67, 54, 0.3));
+}

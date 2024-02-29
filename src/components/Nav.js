@@ -1,11 +1,12 @@
 import Link from 'next/link'; // Import if you want to use Next.js Link components for navigation
 import styles from './Nav.module.css'; // Assuming you have or will create a separate CSS module for the Nav
+import { Radar } from 'lucide-react';
 
 function Nav({onHomeClick,onFetchClick,onClusterClick,onPredictionClick,onAnalyzeClick}) {
   return (
     <>
       <div className={styles.logo}>
-          Publication Radar
+          <Radar/><span className={styles.logotext}>Publication Radar</span>
       </div>
       <nav className={styles.glasscard_nav}>
         <ul>

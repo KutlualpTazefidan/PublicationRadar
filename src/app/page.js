@@ -7,6 +7,7 @@ import IntroSection from '../components/IntroSection'; // Adjust the path as nec
 import FetchSection from '../components/FetchSection'; // Adjust the path as necessary
 import ClusterSection from '../components/ClusterSection'; // Adjust the path as necessary
 import PredictionSection from '../components/PredictionSection'; // Adjust the path as necessary
+import AnalyzeSection from '../components/AnalyzeSection'; // Adjust the path as necessary
 import { useTransition, animated } from 'react-spring';
 
 const exo = Exo({ subsets: ["latin"] });
@@ -19,6 +20,7 @@ export default function Home() {
     fetch: <FetchSection />,
     cluster: <ClusterSection />,
     prediction: <PredictionSection />,
+    analyze: <AnalyzeSection />,
     // Add more sections as needed
   };
 
