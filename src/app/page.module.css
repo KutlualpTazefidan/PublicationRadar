@@ -4,7 +4,7 @@
   align-items: center;
   background: linear-gradient(to left top, #74ece4, #416bb9, #0303031a);
   width: 100%;
-  min-height: 100vh; /* Adjusted from height to min-height */
+  min-height: 100vh;
 }
 
 /* Updated CSS for smoother transitions */
